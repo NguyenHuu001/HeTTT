@@ -1,0 +1,18 @@
+:root {
+    --color: #f2b94c;
+}
+.login{
+    width: 600px;
+    padding: 20px 30px;
+}
+.button_login{
+    background-color: var(--color);
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+}
+.button_login:hover{
+   opacity: 0.7;
+   transition: all linear 0.3s;
+}

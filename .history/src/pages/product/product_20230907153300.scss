@@ -1,0 +1,21 @@
+.banner_product {
+    position: relative;
+    text-align: center;
+}
+.titlesp {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.img_item{
+    height: 150px;
+}
+.img_item{
+
+    img{
+        object-fit: contain;
+    }
+}

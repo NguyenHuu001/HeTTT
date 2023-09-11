@@ -1,0 +1,43 @@
+:root {
+    --color: #f2b94c;
+}
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: 3px 3px 8px -3px #ddd;
+    background-color: #fdfaf5;
+}
+.header_hover {
+    text-transform: uppercase;
+}
+.header_hover:hover {
+    cursor: pointer;
+    color: var(--color);
+    transition: all linear 0.2s;
+}
+.wrap_user {
+    position: relative;
+}
+.log_out {
+    border-radius: 2px;
+    background-color: var(--color);
+    color: #fff;
+    padding: 5px;
+    position: absolute;
+}
+.log_out:hover{
+    opacity: 0.7;
+    transition: all linear 0.2s;
+}
+.wrap_user,
+.log_out:hover {
+    cursor: pointer;
+}
+.cart_icon{
+    position: relative;
+    color: var(--color);
+    .count_item_cart{
+        po
+    }
+}

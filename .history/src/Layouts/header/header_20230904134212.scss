@@ -1,0 +1,8 @@
+:root {
+    --color: #f2b94c;
+}
+.header_hover:hover {
+    cursor: pointer;
+    color: var(--color);
+    transition: all linear 0.4s;
+}

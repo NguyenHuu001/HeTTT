@@ -1,0 +1,6 @@
+banner_product
+.banner_product::before{
+    content: 'Tất cả sản phẩm';
+    position: absolute;
+    z-index: 2;
+}

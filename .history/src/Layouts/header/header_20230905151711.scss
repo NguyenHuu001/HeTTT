@@ -1,0 +1,29 @@
+:root {
+    --color: #f2b94c;
+}
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: 3px 3px 8px -3px #ddd;
+    background-color: #fdfaf5;
+}
+.header_hover {
+    text-transform: uppercase;
+}
+.header_hover:hover {
+    cursor: pointer;
+    color: var(--color);
+    transition: all linear 0.2s;
+}
+.wrap_user {
+    position: relative;
+}
+.log_out {
+    padding: ;
+    position: absolute;
+}
+.wrap_user,
+.log_out:hover {
+    cursor: pointer;
+}
