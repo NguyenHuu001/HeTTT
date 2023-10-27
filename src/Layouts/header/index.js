@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react';
 import { notification } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import Cookies from 'js-cookie';
 function Header() {
     const name = localStorage.getItem('userName');
     const countDish = localStorage.getItem('coutnDish');
+    const role = localStorage.getItem('role');
     const navigate = useNavigate();
     const [blur, setBlur] = useState(false);
     const [userName, setUserName] = useState('');
@@ -19,6 +21,7 @@ function Header() {
     const ClickLogOut = () => {
         localStorage.clear('coutnDish');
         localStorage.clear('userName');
+        Cookies.remove('token');
         navigate('/login');
         notification.open({
             type: 'success',
@@ -49,12 +52,19 @@ function Header() {
                 <div className="d-flex justify-content-end align-items-center">
                     {userName ? (
                         <>
-                            <Link to="/cart">
-                                <div className="me-4 cart_icon">
-                                    <FontAwesomeIcon icon={faCartShopping} size="2xl" />
-                                    <span className="count_item_cart">{countDish}</span>
-                                </div>
-                            </Link>
+                            {role === 'User' ? (
+                                <Link to="/cart">
+                                    <div className="me-4 cart_icon">
+                                        <FontAwesomeIcon icon={faCartShopping} size="2xl" />
+                                        <span className="count_item_cart">{countDish}</span>
+                                    </div>
+                                </Link>
+                            ) : (
+                                <Link to="/detailcitizen" style={{ textDecoration: 'none' }}>
+                                    <div className="me-4">Xem thông tin khách hàng</div>
+                                </Link>
+                            )}
+
                             <div>
                                 <span className="fw-bolder wrap_user" onClick={ClickBlur}>
                                     {userName}

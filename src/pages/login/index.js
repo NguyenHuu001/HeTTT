@@ -3,9 +3,8 @@ import { Form, Input, notification } from 'antd';
 import { fetchLogin } from '../../services/restaurant_services';
 import './login.scss';
 import CryptoJS from 'crypto-js';
+import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
-import { fetchKeys } from '../../services/restaurant_services';
-import forge from 'node-forge';
 function Login() {
     const navigate = useNavigate();
     //AES
@@ -13,11 +12,8 @@ function Login() {
     // const iv = '123456789012345623';
     const [userName, setUserName] = useState();
     const [passWord, setPassWord] = useState();
-    useEffect(() => {
-        
-        
-    }, []);
-    
+    useEffect(() => {}, []);
+
     //AES
     function encrypt(data) {
         const encryptedData = CryptoJS.AES.encrypt(data, key, {
@@ -30,7 +26,7 @@ function Login() {
 
     const dangNhap = async () => {
         const newpass = encrypt(passWord);
-        // console.log(newpass);
+        console.log(newpass);
         try {
             const loginData = {
                 username: userName,
@@ -42,9 +38,11 @@ function Login() {
             if (userName && passWord) {
                 const response = await fetchLogin(loginData, config).then((res) => {
                     const da = res.data[0];
-
+                    // Lưu biến vào cookie
+                    Cookies.set('token', res.token, { expires: 10 });
                     if (da[1]) {
                         localStorage.setItem('userName', da[1]);
+                        localStorage.setItem('role', da[3]);
                         navigate('/home');
                         localStorage.setItem('mng', da[0]);
                         notification.open({

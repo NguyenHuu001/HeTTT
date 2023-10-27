@@ -1,9 +1,0 @@
-.banner_product{
-    position: relative;
-    z-index: 0;
-}
-.banner_product::before{
-    content: 'Tất cả sản phẩm';
-    position: absolute;
-    z-index: 10;
-}

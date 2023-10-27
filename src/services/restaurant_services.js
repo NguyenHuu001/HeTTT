@@ -1,16 +1,45 @@
 import { instance } from './axios';
 // import axios from 'axios';
-const fetchLogin = (loginData, config) => {
-    return instance.post('/login', loginData, config);
+const fetchLogin = (loginData) => {
+    return instance.post('/login', loginData);
 };
-const fetchDish = () => {
-    return instance.get('/MonAn');
+const fetchDish = (config) => {
+    return instance.get('/MonAn', config);
+};
+const getOneDish = (id, config) => {
+    return instance.get(`/dish/${id}`, config);
+};
+const fetchCart = (config) => {
+    return instance.get(`/GioHang`, config);
+};
+const DeleteItemCard = (id, config) => {
+    return instance.delete(`/DeleteCartItem/${id}`, config);
+};
+const AddtoCart = (data, config) => {
+    return instance.post('/AddToCart', data, config);
 };
 
-const fetchCart = (maND) => {
-    return instance.get(`/GioHang?maNguoiDung=${maND}` );
+const AddDishItem = (data, config) => {
+    return instance.post('/AddDish', data, config);
 };
-const fetchKeys = () => {
-    return instance.get('keys');
-}
-export { fetchLogin, fetchDish, fetchCart, fetchKeys };
+const EditDish = (data, config) => {
+    return instance.post('/EditDish', data, config);
+};
+const DeleteDish = (data, config) => {
+    return instance.post('/DeleteDish', data, config);
+};
+const getAllCitizen = (config) => {
+    return instance.get('/getAllKhachHang', config);
+};
+export {
+    fetchLogin,
+    fetchDish,
+    getOneDish,
+    fetchCart,
+    DeleteItemCard,
+    AddtoCart,
+    AddDishItem,
+    EditDish,
+    DeleteDish,
+    getAllCitizen,
+};
